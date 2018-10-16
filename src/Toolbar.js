@@ -17,7 +17,7 @@ export default class ToolBar extends Component {
                     
                     <div className='room-selection-container container'>
                         <label>Room: </label>
-                        <input name='room' onChange={(e) => this.props.changeHandler(e.target.name, e.target.value)} value={this.props.room} />
+                        <input name='room' onChange={(e) => this.props.roomChangeHandler(e.target.name, e.target.value)} value={this.props.room} />
                         <button onClick={() => window.location.pathname = this.props.room}>Join</button>
                     </div>
 

@@ -98,6 +98,12 @@ class App extends Component {
     socket.emit('toolbar', {name: name, value: value})
   }
 
+  roomChangeHandler = (name, value) => {
+    this.setState({
+      [name]: value
+    })
+  }
+
   toggleFunc = () => {
     this.setState((prevState) => {
         return {
@@ -110,7 +116,7 @@ class App extends Component {
     console.log(this.state.wordWrap)
     return (
       <div className="App">
-        <ToolBar {...this.state} changeHandler={this.changeHandler} />
+        <ToolBar {...this.state} roomChangeHandler={this.roomChangeHandler} changeHandler={this.changeHandler} />
         <div onClick={this.toggleFunc} className={this.state.drawerToggle ? 'toggle' : 'toggle showham'}>
             {this.state.drawerToggle ? <span className='fade'>Close</span> : <span className='fadey'>Open</span>}
         </div>
