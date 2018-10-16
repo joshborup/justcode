@@ -15,6 +15,7 @@ import 'brace/mode/typescript';
 import 'brace/mode/scss';
 import 'brace/mode/sql';
 import 'brace/mode/text';
+import 'brace/mode/markdown';
 
 
 //themes
@@ -22,8 +23,12 @@ import 'brace/theme/monokai';
 import 'brace/theme/github';
 import 'brace/theme/terminal';
 import 'brace/theme/xcode';
+import 'brace/theme/clouds_midnight';
+import 'brace/theme/eclipse';
+import 'brace/theme/ambiance';
+import 'brace/theme/cobalt';
 
-// const socket = socketIOClient('http://192.168.1.19:4000');
+// const socket = socketIOClient('http://localhost:4000');
 const socket = socketIOClient();
 
 class App extends Component {
@@ -40,11 +45,12 @@ class App extends Component {
       drawerToggle: false
     }
 
-    if(window.location.pathname !== '/'){
+    if(window.location.pathname !== '/' && window.location.pathname !== ''){
       socket.emit('join', window.location.pathname)
     }
 
     socket.on('room', (room) => {
+      console.log(room)
       this.setState({
         room: room
       })
@@ -52,7 +58,8 @@ class App extends Component {
 
     socket.on('message', (code) => {
       this.setState({
-        code: code
+        code: code.value,
+        room: code.room
       })
     })
 
@@ -131,7 +138,7 @@ class App extends Component {
           className='split-editor-custom'
           orientation="beside"
           value={this.state.code}
-          setOptions={{cursorStyle: "smooth"}}
+          setOptions={{cursorStyle: "smooth", copyWithEmptySelection: true}}
           onChange={this.onChange}
           wrapEnabled={this.state.wordWrap}
           name="UNIQUE_ID_OF_DIV"

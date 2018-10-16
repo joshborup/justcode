@@ -3,10 +3,22 @@ import React, { Component } from 'react';
 export default class ToolBar extends Component {
 
     render() {
+        console.log(this.props.language)
+        
+       const {language:l} = this.props;
+       console.log('this is just the l variable', l)
+       let downloadable = this.props.code ? this.props.code[0].replace(/\s/g, '%20') : this.props.code;
+       let extension = l === 'javascript' ? 'js' : l === 'html' ? 'html' : l === 'css' ? 'css' : l === 'scss' ? 'scss' : l === 'sql' ? 'sql' : l === 'typescript' ? 'ts' : l === 'markdown' ? 'markdown' : l === 'text' ? 'txt' : null;
+
+
         return (
             <div className={this.props.drawerToggle ? 'toolbar-container' : 'toolbar-container hide'}>
                 <div>
-                    <h1>Just Code</h1>
+                    <div>
+                        <h1>Just Code</h1>
+                        <h2>Effortlessly collaborate</h2>
+                    </div>
+                    <a href={`data:application/html;charset=utf-16le;html,${downloadable}`} download={`just_code_session.${extension}`}>Download the code from this session</a>
                     {/* <div className='pane-selection-container'>
                         <label>Notes Tab: </label>
                         <select name='split' onChange={(e) => this.props.changeHandler(e.target.name, e.target.value)} value={this.props.split}>
@@ -30,6 +42,7 @@ export default class ToolBar extends Component {
                             <option value='scss'>SCSS</option>
                             <option value='sql'>SQL</option>
                             <option value='typescript'>TypeScript</option>
+                            <option value='markdown'>Mark Down</option>
                             <option value='text'>Text</option>
                         </select>
                     </div>
@@ -41,6 +54,10 @@ export default class ToolBar extends Component {
                             <option value='github'>Github</option>
                             <option value='terminal'>terminal</option>
                             <option value='xcode'>xCode</option>
+                            <option value='clouds_midnight'>Clouds Midnight</option>
+                            <option value='eclipse'>Eclipse</option>
+                            <option value='ambiance'>Ambiance</option>
+                            <option value='cobalt'>Cobalt</option>
                         </select>
                     </div>
 
