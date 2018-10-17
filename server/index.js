@@ -15,7 +15,6 @@ io.sockets.on('connection', (socket) => {
         //room name is just the pathname, split and joined to remove forward slash
         let fixedRoom = room.split('/').join('')
         socket.join(room.split('/').join(''))
-        console.log()
         io.in(fixedRoom).emit('room', fixedRoom)
     })
 
@@ -24,7 +23,7 @@ io.sockets.on('connection', (socket) => {
     })
 
     socket.on('toolbar', (settings) => {
-        io.emit('toolbar', settings)
+        io.in(settings.room)('toolbar', settings)
     })
 
     socket.on('disconnect', () => {

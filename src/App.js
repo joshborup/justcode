@@ -102,7 +102,7 @@ class App extends Component {
   }
 
   changeHandler = (name, value) => {
-    socket.emit('toolbar', {name: name, value: value})
+    socket.emit('toolbar', {name: name, value: value, room: this.state.room})
   }
 
   roomChangeHandler = (name, value) => {
