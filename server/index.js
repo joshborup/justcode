@@ -23,7 +23,8 @@ io.sockets.on('connection', (socket) => {
     })
 
     socket.on('toolbar', (settings) => {
-        io.in(settings.room)('toolbar', settings)
+        console.log('settngs', settings)
+        io.in(settings.room).emit('toolbar', settings)
     })
 
     socket.on('disconnect', () => {
