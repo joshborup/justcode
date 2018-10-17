@@ -16,6 +16,7 @@ io.sockets.on('connection', (socket) => {
         let fixedRoom = room.split('/').join('')
         socket.join(room.split('/').join(''))
         io.in(fixedRoom).emit('room', fixedRoom)
+        
     })
 
     socket.on('message', (message) => {
