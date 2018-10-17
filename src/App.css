@@ -33,8 +33,28 @@
   color: rgb(57, 119, 119);
 }
 
+.instructions-container h2 {
+  text-align: center;
+  font-weight: 500;
+  padding-bottom: 5px;
+  border-bottom: black 1px solid;
+  margin-bottom: 5px;
+}
+
+.instructions-container p {
+  text-align: center;
+  font-weight: 400;
+}
+
+.instructions-container span {
+  text-align: center;
+  font-weight: 500;
+}
+
+
+
 .toolbar-container > div {
-  min-height: 400px;
+  min-height: 500px;
   width: 100%;
   display: flex;
   flex-direction: column;

@@ -37,11 +37,15 @@ export default class ToolBar extends Component {
                             <option value='2'>show</option>
                         </select>
                     </div> */}
-                    
+                    <div className='instructions-container'>
+                        <h2>How it works:</h2>
+                        <p>Enter a name and hit <span>"Go"</span> to join or create a room, anyone in this same room will be able to collaborate in realtime</p>
+
+                    </div>
                     <div className='room-selection-container container'>
                         <label>Room: </label>
                         <input name='room' onChange={(e) => this.props.roomChangeHandler(e.target.name, e.target.value)} value={this.props.room} />
-                        <button onClick={() => window.location.pathname = this.props.room}>Join</button>
+                        <button onClick={() => window.location.pathname = this.props.room}>Go</button>
                     </div>
 
                     <div className='language-selection-container container'>
@@ -51,8 +55,14 @@ export default class ToolBar extends Component {
                             <option value='html'>HTML</option>
                             <option value='css'>CSS</option>
                             <option value='scss'>SCSS</option>
-                            <option value='sql'>SQL</option>
                             <option value='typescript'>TypeScript</option>
+                            <option value='java'>Java</option>
+                            <option value='php'>PHP</option>
+                            <option value='csharp'>C#</option>
+                            <option value='python'>Python</option>
+                            <option value='mysql'>MySQL</option>
+                            <option value='pgsql'>PostgreSQL</option>
+                            <option value='sql'>SQL</option>
                             <option value='markdown'>Mark Down</option>
                             <option value='text'>Text</option>
                         </select>

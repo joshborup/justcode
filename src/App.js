@@ -16,6 +16,12 @@ import 'brace/mode/typescript';
 import 'brace/mode/scss';
 import 'brace/mode/sql';
 import 'brace/mode/text';
+import 'brace/mode/mysql';
+import 'brace/mode/php';
+import 'brace/mode/python';
+import 'brace/mode/java';
+import 'brace/mode/pgsql';
+import 'brace/mode/csharp';
 import 'brace/mode/markdown';
 
 
