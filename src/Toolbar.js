@@ -3,9 +3,11 @@ import JSZip from 'jszip';
 import FileSaver from 'file-saver';
 
 export default class ToolBar extends Component {
+    state = {
+        clipboardLabel: 'Copy this sessions code to the clipboard'
+    }
 
     render() {
-        console.log(this.props.language)
         
        const {language:l} = this.props;
        console.log('this is just the l variable', l)
@@ -21,12 +23,13 @@ export default class ToolBar extends Component {
                         <h2>Effortlessly collaborate</h2>
                     </div>
                     <a onClick={() => {
-                        let zip = new JSZip();
-                        zip.file(`just_code_session.${extension}`, downloadable);
-                        zip.generateAsync({type: "blob"}).then(function(content) {
-                        FileSaver.saveAs(content, "just_code_session.zip");
-                        });
-                    }}>Download the code from this session</a>
+                        
+                        this.setState({clipboardLabel: 'Copied'})
+                        navigator.clipboard.writeText(downloadable)
+                        setTimeout(()=>this.setState({clipboardLabel: 'Copy this sessions code to the clipboard'}), 2000)
+                        
+                        
+                    }}>{this.state.clipboardLabel}</a>
                     {/* <div className='pane-selection-container'>
                         <label>Notes Tab: </label>
                         <select name='split' onChange={(e) => this.props.changeHandler(e.target.name, e.target.value)} value={this.props.split}>
@@ -72,11 +75,34 @@ export default class ToolBar extends Component {
                     <div className='font-size-container container'>
                         <label>Font Size: </label>
                         <input type='number' name='fontSize' onChange={(e) => this.props.changeHandler(e.target.name, e.target.value)} value={this.props.fontSize} />
+                        <label>tabSize: </label>
+                        <input type='number' name='tabSize' onChange={(e) => this.props.changeHandler(e.target.name, e.target.value)} value={this.props.tabSize} />
                     </div>
 
                     <div className='wordWrap-container container'>
                         <label>Word Wrap: </label>
-                        <input type='checkbox' name='wordWrap' onChange={(e) => this.props.changeHandler(e.target.name, e.target.value)} value={this.props.wordWrap} />
+                        <select name='wordWrap' onChange={(e) => this.props.changeHandler(e.target.name, e.target.value)} value={this.props.wordWrap}>
+                            <option value={false}>No-Wrap</option>
+                            <option value={true}>Wrap</option>
+                        </select>
+                    </div>
+
+                    <div className='wordWrap-container container'>
+                        <label>Auto Complete: </label>
+                        <select name='enableLiveAutocompletion' onChange={(e) => this.props.changeHandler(e.target.name, e.target.value)} value={this.props.enableLiveAutocompletion}>
+                            <option value={false}>Disabled</option>
+                            <option value={true}>Enabled</option>
+                        </select>
+                    </div>
+
+                    <div className='attribution'>
+                        <div>
+                            <h3> Made with </h3>
+                        <h3 className='made-with'>
+                        <div>&lt;</div><div>3</div></h3>
+                        <h3>by</h3>
+                        <h3>&nbsp;<a href='https://www.joshborup.com'>Josh&nbsp;Borup</a> </h3>
+                        </div>
                     </div>
                 </div>
             </div>

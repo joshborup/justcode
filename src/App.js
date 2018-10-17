@@ -4,6 +4,7 @@ import brace from 'brace';
 import generateRandom from 'sillyname';
 import { split as SplitEditor} from 'react-ace';
 import ToolBar from './Toolbar';
+import 'brace/ext/language_tools';
 import './App.css';
 
 //languages
@@ -16,6 +17,7 @@ import 'brace/mode/scss';
 import 'brace/mode/sql';
 import 'brace/mode/text';
 import 'brace/mode/markdown';
+
 
 
 //themes
@@ -42,7 +44,9 @@ class App extends Component {
       fontSize:16,
       theme: 'monokai',
       wordWrap: false,
-      drawerToggle: false
+      drawerToggle: false,
+      tabSize: 4,
+      enableLiveAutocompletion:false
     }
 
     if(window.location.pathname !== '/' && window.location.pathname !== ''){
@@ -79,6 +83,7 @@ class App extends Component {
   }
 
   componentDidMount(){
+    
 
     window.addEventListener('resize', ()=> this.throttle(console.log(window.innerHeight), 75))
 
@@ -123,15 +128,19 @@ class App extends Component {
     })
   }
 
+
+
   render() {
-    console.log(this.state.wordWrap)
+    
     return (
       <div className="App">
         <ToolBar {...this.state} roomChangeHandler={this.roomChangeHandler} changeHandler={this.changeHandler} />
         <div onClick={this.toggleFunc} className={this.state.drawerToggle ? 'toggle' : 'toggle showham'}>
+          <div className={this.state.drawerToggle ? 'closes' : 'opens'}>
             <span className={this.state.drawerToggle ? 'bar close one' : 'bar open one'}></span>
             <span className={this.state.drawerToggle ? 'bar close two' : 'bar open two'}></span>
             <span className={this.state.drawerToggle ? 'bar close three' : 'bar open three'}></span>
+          </div>
         </div>
         <SplitEditor
           mode={this.state.language}
@@ -143,11 +152,14 @@ class App extends Component {
           fontSize={+this.state.fontSize <= 0 ? 1 : +this.state.fontSize}
           className='split-editor-custom'
           orientation="beside"
+          // possibly to fix stepping on eachother issue
+          // debounceChangePeriod={100}
           value={this.state.code}
-          setOptions={{cursorStyle: "smooth", copyWithEmptySelection: true}}
+          setOptions={{cursorStyle: "smooth", enableLiveAutocompletion: this.state.enableLiveAutocompletion}}
           onChange={this.onChange}
           wrapEnabled={this.state.wordWrap}
           name="UNIQUE_ID_OF_DIV"
+          tabSize={+this.state.tabSize <= 0 ? 1 : +this.state.tabSize}
           editorProps={{$blockScrolling: true}}
       />
       </div>

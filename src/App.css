@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto:400,500');
+@import url('https://fonts.googleapis.com/css?family=Righteous|Roboto:300,400,500,700');
 
 .ace-monokai .ace_print-margin {
   display: none;
@@ -14,10 +14,8 @@
   right: 0;
   top: 0;
   bottom: 0;
-  border: white 3px solid;
   background-color: #dbdbdb;
   box-shadow: -3px 4px 5px rgba(0, 0, 0, 0.271);
-  border-radius: 5px;
   padding: 20px;
   transition: .3s;
   z-index: 5;
@@ -28,6 +26,7 @@
   text-align: center;
   background: white;
   padding: 5px;
+  width: 100%;
   box-shadow: 1px 4px 5px rgba(0, 0, 0, 0.271);
   cursor: pointer;
   border-radius: 5px;
@@ -51,6 +50,7 @@ h1 {
   font-weight: 400;
   width: 100%;
   text-align: center;
+  font-family: 'Righteous', cursive;
 }
 h2 {
   font-size: 18px;
@@ -111,6 +111,10 @@ input:not([type='checkbox']){
   border-radius: 3px;
 }
 
+.font-size-container.container > input {
+  width: 30px;
+}
+
 .toggle {
   display: none;
 }
@@ -137,6 +141,17 @@ input:not([type='checkbox']){
     z-index: 10;
     cursor: pointer;
     overflow: hidden;
+    background: white;
+    border-radius: 12px;
+  }
+  .toggle > div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    height: 100%;
+    transition: .3s;
   }
 
   .bar {
@@ -144,15 +159,25 @@ input:not([type='checkbox']){
     transform: translate(0,0);
     border-bottom: solid 2px black;
     display: block;
-    width: 0px;
+    width: 25px;
     transition: .3s;
+    position: relative;
+  }
+
+  .toggle > div.opens {
+    transform: rotate(0deg);
+  }
+
+  .toggle > div.closes {
+    transform: rotate(180deg);
   }
 
   .bar.open.one {
-    transform: rotate(0deg)
+    transform: rotate(0deg);
   }
 
   .bar.open.two {
+    margin: 3px 0;
   }
 
   .bar.open.three {
@@ -160,48 +185,27 @@ input:not([type='checkbox']){
   }
 
   .bar.close.one {
-    transform: rotate(25deg)
+    transform: rotate(145deg) translate(7px, 1px) scaleX(.5);
+    border-color: rgb(0, 17, 255);
+
+    z-index: 3;
   }
 
   .bar.close.two {
+    border-color: rgb(255, 0, 200);
+    z-index: 4;
   }
 
   .bar.close.three {
-    transform: rotate(-25deg)
+    transform: rotate(-145deg) translate(7px, 0px)  scaleX(.5);
+    border-color: rgb(255, 115, 0);
+    z-index: 3;
   }
 
   
-  .fadey {
-    opacity: 0;
-    animation: fadey .3s ease-in  1 forwards;
-    overflow: hidden;
-    transform: translate(0,0);
-    background: rgb(229, 255, 229);
-    display: block;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
+  
 
-  @keyframes fadey {
-    0% {
-      opacity: 0;
-      transform: translate(0,-30px);
-    }
-    100% {
-      opacity: 1;
-      transform: translate(0,0);
-  }
-  }
-
-  .toggle span {
-    
-    width: 100%;
-    font-family: 'Roboto', sans-serif;
-    color: black;
-  }
+  
 
   .toolbar-container {
     transform: translate(0px, 0);
@@ -211,3 +215,50 @@ input:not([type='checkbox']){
     transform: translate(350px, 0);
   }
 }
+
+
+.attribution {
+  display: flex;
+  position: absolute;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+  text-align: center;
+  color: #8f8f8f;
+  max-height: 85px;
+  height: 85px;
+  max-width: 280px;
+  margin: 0 auto;
+  bottom: 0;
+  left: 0;
+  right: 0; }
+  .attribution a {
+    color: #8f8f8f;
+    width: 100%; }
+  .attribution a:hover {
+    color: #5c5b5b; }
+  .attribution .made-with {
+    font-size: 27px;
+    letter-spacing: -4px;
+    transform: rotate(270deg);
+    margin: 0 8px 0 5px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+    .attribution .made-with > div:first-child {
+      font-size: 22px;
+      transform: scale(1, 1.5); }
+    .attribution .made-with > div:last-child {
+      transform: translate(0, 1px); }
+  .attribution h3 {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center; }
+  .attribution > div:first-child {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%; }
+    .attribution > div:first-child > div {
+      position: absolute;
+      right: 120px; }
