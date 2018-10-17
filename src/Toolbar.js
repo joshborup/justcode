@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import JSZip from 'jszip';
+import FileSaver from 'file-saver';
 
 export default class ToolBar extends Component {
 
@@ -7,9 +9,9 @@ export default class ToolBar extends Component {
         
        const {language:l} = this.props;
        console.log('this is just the l variable', l)
-       let downloadable = this.props.code ? this.props.code[0].replace(/\s/g, '%20') : this.props.code;
+       let downloadable = this.props.code ? this.props.code[0] : this.props.code;
        let extension = l === 'javascript' ? 'js' : l === 'html' ? 'html' : l === 'css' ? 'css' : l === 'scss' ? 'scss' : l === 'sql' ? 'sql' : l === 'typescript' ? 'ts' : l === 'markdown' ? 'markdown' : l === 'text' ? 'txt' : null;
-
+       
 
         return (
             <div className={this.props.drawerToggle ? 'toolbar-container' : 'toolbar-container hide'}>
@@ -18,7 +20,13 @@ export default class ToolBar extends Component {
                         <h1>Just Code</h1>
                         <h2>Effortlessly collaborate</h2>
                     </div>
-                    <a href={`data:application/html;charset=utf-16le;html,${downloadable}`} download={`just_code_session.${extension}`}>Download the code from this session</a>
+                    <a onClick={() => {
+                        let zip = new JSZip();
+                        zip.file(`just_code_session.${extension}`, downloadable);
+                        zip.generateAsync({type: "blob"}).then(function(content) {
+                        FileSaver.saveAs(content, "just_code_session.zip");
+                        });
+                    }}>Download the code from this session</a>
                     {/* <div className='pane-selection-container'>
                         <label>Notes Tab: </label>
                         <select name='split' onChange={(e) => this.props.changeHandler(e.target.name, e.target.value)} value={this.props.split}>
