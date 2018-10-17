@@ -63,19 +63,19 @@ class App extends Component {
       })
     })
 
-    socket.on('toolbar', (setting) => {
-      if(setting.name == 'wordWrap'){
-        this.setState((prevState) => {
-          return {
-            [setting.name]: !prevState.wordWrap
-          }
-        })
-      }else{
-        this.setState({
-          [setting.name]: setting.value
-        })
-      }
-    })
+    // socket.on('toolbar', (setting) => {
+    //   if(setting.name == 'wordWrap'){
+    //     this.setState((prevState) => {
+    //       return {
+    //         [setting.name]: !prevState.wordWrap
+    //       }
+    //     })
+    //   }else{
+    //     this.setState({
+    //       [setting.name]: setting.value
+    //     })
+    //   }
+    // })
   }
 
   componentDidMount(){
@@ -102,7 +102,11 @@ class App extends Component {
   }
 
   changeHandler = (name, value) => {
-    socket.emit('toolbar', {name: name, value: value, room: this.state.room})
+    // socket.emit('toolbar', {name: name, value: value, room: this.state.room})
+    console.log(name, value)
+    this.setState({
+      [name]: value
+    })
   }
 
   roomChangeHandler = (name, value) => {

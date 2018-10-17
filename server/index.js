@@ -22,10 +22,10 @@ io.sockets.on('connection', (socket) => {
         io.in(message.room).emit('message',{room:message.room, value:message.newValue})
     })
 
-    socket.on('toolbar', (settings) => {
-        console.log('settngs', settings)
-        io.in(settings.room).emit('toolbar', settings)
-    })
+    // socket.on('toolbar', (settings) => {
+    //     console.log('settngs', settings)
+    //     io.in(settings.room).emit('toolbar', settings)
+    // })
 
     socket.on('disconnect', () => {
         console.log('user disconnected');
