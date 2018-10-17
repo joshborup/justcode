@@ -6,7 +6,7 @@
 
 .toolbar-container {
   height: 100vh;
-  width: 310px;
+  width: 350px;
   position: fixed;
   display: flex;
   flex-direction: column;
@@ -66,7 +66,7 @@ h2 {
 }
 
 .App {
-  width:calc(100vw - 310px);
+  width:calc(100vw - 350px);
 }
 
 .split-editor-custom {
@@ -122,7 +122,7 @@ input:not([type='checkbox']){
 
   .toggle {
     display: flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     text-align: center;
     flex-direction: column;
@@ -133,42 +133,50 @@ input:not([type='checkbox']){
     position: fixed;
     top: 24px;
     right: 25px;
+    padding: 6px 9px;
     z-index: 10;
     cursor: pointer;
     overflow: hidden;
   }
 
-  .fade {
-    opacity: 0;
-    animation: fader .3s ease-in  1 forwards;
+  .bar {
     overflow: hidden;
     transform: translate(0,0);
-    background: rgb(250, 179, 179);
+    border-bottom: solid 2px black;
     display: block;
-    height: 100%;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    width: 0px;
+    transition: .3s;
   }
 
-  @keyframes fader {
-    0% {
-      opacity: 0;
-      transform: translate(0,30px);
-    }
-    100% {
-      opacity: 1;
-      transform: translate(0,0);
+  .bar.open.one {
+    transform: rotate(0deg)
   }
-}
 
+  .bar.open.two {
+  }
+
+  .bar.open.three {
+    transform: rotate(0deg)
+  }
+
+  .bar.close.one {
+    transform: rotate(25deg)
+  }
+
+  .bar.close.two {
+  }
+
+  .bar.close.three {
+    transform: rotate(-25deg)
+  }
+
+  
   .fadey {
     opacity: 0;
     animation: fadey .3s ease-in  1 forwards;
     overflow: hidden;
     transform: translate(0,0);
-    background: rgb(192, 250, 192);
+    background: rgb(229, 255, 229);
     display: block;
     height: 100%;
     width: 100%;
@@ -200,6 +208,6 @@ input:not([type='checkbox']){
   }
 
   .hide {
-    transform: translate(310px, 0);
+    transform: translate(350px, 0);
   }
 }

@@ -129,7 +129,9 @@ class App extends Component {
       <div className="App">
         <ToolBar {...this.state} roomChangeHandler={this.roomChangeHandler} changeHandler={this.changeHandler} />
         <div onClick={this.toggleFunc} className={this.state.drawerToggle ? 'toggle' : 'toggle showham'}>
-            {this.state.drawerToggle ? <span className='fade'>Close</span> : <span className='fadey'>Open</span>}
+            <span className={this.state.drawerToggle ? 'bar close one' : 'bar open one'}></span>
+            <span className={this.state.drawerToggle ? 'bar close two' : 'bar open two'}></span>
+            <span className={this.state.drawerToggle ? 'bar close three' : 'bar open three'}></span>
         </div>
         <SplitEditor
           mode={this.state.language}
