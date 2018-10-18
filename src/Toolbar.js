@@ -11,7 +11,7 @@ export default class ToolBar extends Component {
         
        const {language:l} = this.props;
        console.log('this is just the l variable', l)
-       let downloadable = this.props.code ? this.props.code[0] : this.props.code;
+       let downloadable = this.props.code ? this.props.code : this.props.code;
        let extension = l === 'javascript' ? 'js' : l === 'html' ? 'html' : l === 'css' ? 'css' : l === 'scss' ? 'scss' : l === 'sql' ? 'sql' : l === 'typescript' ? 'ts' : l === 'markdown' ? 'markdown' : l === 'text' ? 'txt' : null;
        
 

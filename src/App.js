@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import socketIOClient from 'socket.io-client';
 import brace from 'brace';
 import generateRandom from 'sillyname';
-import { split as SplitEditor} from 'react-ace';
+// import { split as SplitEditor} from 'react-ace';
+import AceEditor from 'react-ace';
 import ToolBar from './Toolbar';
 import 'brace/ext/language_tools';
 import './App.css';
@@ -167,13 +168,12 @@ class App extends Component {
             <span className={this.state.drawerToggle ? 'bar close three' : 'bar open three'}></span>
           </div>
         </div>
-        <SplitEditor
+        <AceEditor
           mode={this.state.language}
           theme={this.state.theme}
           height="100vh"
           width="100%"
           
-          splits={this.state.split <= 0 ? 1 : this.state.split}
           showPrintMargin={false}
           fontSize={+this.state.fontSize <= 0 ? 1 : +this.state.fontSize}
           className='split-editor-custom'
