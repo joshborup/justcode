@@ -91,7 +91,7 @@ class App extends Component {
   componentDidMount(){
     
 
-    window.addEventListener('resize', ()=> this.throttle(console.log(window.innerHeight), 75))
+    // window.addEventListener('resize', ()=> this.throttle(console.log(window.innerHeight), 75))
 
     if(window.location.pathname === '/'){
       window.location.pathname = `/${generateRandom().split(' ').join('')}`
@@ -153,6 +153,7 @@ class App extends Component {
           theme={this.state.theme}
           height="100vh"
           width="100%"
+          
           splits={this.state.split <= 0 ? 1 : this.state.split}
           showPrintMargin={false}
           fontSize={+this.state.fontSize <= 0 ? 1 : +this.state.fontSize}

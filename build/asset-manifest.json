@@ -1,6 +1,11 @@
 {
-  "main.css": "static/css/main.97e83d75.css",
-  "main.css.map": "static/css/main.97e83d75.css.map",
-  "main.js": "static/js/main.f69e8147.js",
-  "main.js.map": "static/js/main.f69e8147.js.map"
+  "main.css": "static/css/main.81a4fb5b.css",
+  "main.css.map": "static/css/main.81a4fb5b.css.map",
+  "main.js": "static/js/main.1d0c1545.js",
+  "main.js.map": "static/js/main.1d0c1545.js.map",
+  "static/media/Righteous-Regular.ttf": "static/media/Righteous-Regular.490cb0e4.ttf",
+  "static/media/Roboto-Bold.ttf": "static/media/Roboto-Bold.ee7b96fa.ttf",
+  "static/media/Roboto-Medium.ttf": "static/media/Roboto-Medium.d0884059.ttf",
+  "static/media/Roboto-Regular.ttf": "static/media/Roboto-Regular.3e1af3ef.ttf",
+  "static/media/Roboto-Thin.ttf": "static/media/Roboto-Thin.89e2666c.ttf"
 }
