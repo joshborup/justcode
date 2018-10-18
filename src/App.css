@@ -261,7 +261,7 @@ input:not([type='checkbox']){
   align-items: center;
   flex-direction: row;
   text-align: center;
-  color: #8f8f8f;
+  color: #505050;
   max-height: 85px;
   height: 55px;
   width: 100%;
@@ -271,10 +271,10 @@ input:not([type='checkbox']){
   left: 0;
   right: 0; }
   .attribution a {
-    color: #8f8f8f;
+    color: #505050;
     width: 100%; }
   .attribution a:hover {
-    color: #5c5b5b; }
+    color: #2e2d2d; }
   .attribution .made-with {
     font-size: 27px;
     letter-spacing: -4px;
