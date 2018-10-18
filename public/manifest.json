@@ -13,7 +13,7 @@
       "sizes": "512x512"
     }
   ],
-  "start_url": "./index.html",
+  "start_url": "./startCollab",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"
