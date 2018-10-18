@@ -1,6 +1,6 @@
 {
-  "short_name": "just code",
-  "name": "just code inc.",
+  "short_name": "Just Code",
+  "name": "Just Code",
   "icons": [
     {
       "src": "icon192.png",
@@ -14,7 +14,7 @@
     }
   ],
   "start_url": "./",
-  "display": "standalone",
+  "display": "fullscreen",
   "theme_color": "#000000",
   "background_color": "#ffffff"
 }
