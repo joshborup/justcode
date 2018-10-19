@@ -179,7 +179,6 @@ class App extends Component {
           className='split-editor-custom'
           orientation="beside"
           // possibly to fix stepping on eachother issue
-          debounceChangePeriod={1}
           value={this.state.code}
           setOptions={{cursorStyle: "smooth", enableLiveAutocompletion: this.state.enableLiveAutocompletion}}
           onChange={this.onChange}
